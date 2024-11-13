@@ -26,4 +26,26 @@ const SmoothScroll = () => {
   );
 };
 
-
+// Navbar Component
+const Navbar = () => {
+    const [menuActive, setMenuActive] = useState(false);
+  
+    const handleCheckboxChange = () => {
+      setMenuActive(!menuActive);
+    };
+  
+    return (
+      <div className="navbar-container">
+        <input type="checkbox" onChange={handleCheckboxChange} />
+        <div className={`menu-items ${menuActive ? 'active' : ''}`}>
+          {/* Menu items */}
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
+  
