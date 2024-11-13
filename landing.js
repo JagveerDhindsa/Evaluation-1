@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+// Smooth Scroll Component
 const SmoothScroll = () => {
   const handleClick = (event, hash) => {
     if (hash !== "") {
@@ -25,4 +26,4 @@ const SmoothScroll = () => {
   );
 };
 
-export default SmoothScroll;
+
