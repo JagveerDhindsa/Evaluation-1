@@ -1,33 +1,28 @@
-$(document).ready(function () {
-    $("a").on("click", function (event) {
-        if (this.hash !== "") {
-            event.preventDefault();
-            var hash = this.hash;
-            $("html, body").animate(
-                {
-                    scrollTop: $(hash).offset().top,
-                },
-                800,function () {
-                    window.location.hash = hash;
-                }
-            );
-        }
-    });
-});
+import React from 'react';
 
-$('.navbar-container input[type="checkbox"]').on('change', function () {
-    $('.menu-items').toggleClass('active');
-});
-
-$('.form-container .btn').on('click', function (event) {
-    event.preventDefault();
-    const name = $('input[type="text"]').val();
-    const email = $('input[type="email"]').val();
-    const message = $('textarea').val();
-    if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-    } else {
-        alert('Thank you for your message, we will get back to you soon!');
-        $('input[type="text"], input[type="email"], textarea').val(''); // Clear fields
+const SmoothScroll = () => {
+  const handleClick = (event, hash) => {
+    if (hash !== "") {
+      event.preventDefault();
+      const element = document.querySelector(hash);
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth',
+      });
+      window.location.hash = hash;
     }
-});
+  };
+
+  return (
+    <div>
+      <a href="#section1" onClick={(e) => handleClick(e, '#section1')}>Go to Section 1</a>
+      <a href="#section2" onClick={(e) => handleClick(e, '#section2')}>Go to Section 2</a>
+      
+      {/* Example sections to scroll to */}
+      <div id="section1" style={{ height: '100vh', backgroundColor: 'lightblue' }}>Section 1</div>
+      <div id="section2" style={{ height: '100vh', backgroundColor: 'lightgreen' }}>Section 2</div>
+    </div>
+  );
+};
+
+export default SmoothScroll;
