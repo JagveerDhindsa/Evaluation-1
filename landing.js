@@ -47,9 +47,9 @@ const Navbar = () => {
         </div>
       </div>
     );
-  };
-  
-  // Contact Form Component
+};
+
+// Contact Form Component
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
