@@ -93,3 +93,13 @@ const ContactForm = () => {
     </div>
   );
 };
+
+// Rendering the React components
+ReactDOM.render(
+  <div>
+    <Navbar />
+    <SmoothScroll />
+    <ContactForm />
+  </div>,
+  document.getElementById('react-root')
+);
