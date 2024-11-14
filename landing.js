@@ -49,3 +49,47 @@ const Navbar = () => {
     );
   };
   
+  // Contact Form Component
+const ContactForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+    } else {
+      alert('Thank you for your message, we will get back to you soon!');
+      setName('');
+      setEmail('');
+      setMessage('');
+    }
+  };
+
+  return (
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <textarea
+          placeholder="Your Message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button className="btn" type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
